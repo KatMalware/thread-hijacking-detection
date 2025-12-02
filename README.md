@@ -16,13 +16,23 @@ Linux Threat Monitor is a lightweight security monitoring toolkit for Linux that
 
 ---
 
-## 🧱 System Requirements
+##System Requirements
 
-- Linux with eBPF support  
-- `bpftrace` installed  
-- Python 3.8+  
-- root privileges  
+Kernel: Linux kernel 4.9+ (better 5.x for full eBPF features)
 
+Privileges: root (to run bpftrace scripts)
+
+Python: 3.8+
+
+Packages:
+
+bpftrace (system package, not pip)
+
+Python libraries: psutil, rich (optional: pyyaml if configs in YAML)
+
+CPU: Any modern x86_64, ARM64 supported if bpftrace works
+
+Memory: Minimal (<100MB) for correlator, depends on event load
 ---
 
 ## 📥 Installation
