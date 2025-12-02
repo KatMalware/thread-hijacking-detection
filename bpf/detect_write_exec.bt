@@ -1,0 +1,12 @@
+tracepoint:syscalls:sys_enter_mprotect
+/arg2 & 0x1 && arg2 & 0x2/
+{
+    @wx_count[comm] += 1;
+}
+
+interval:s:10
+{
+    print("== WRITE-EXEC EVENTS ==");
+    print(@wx_count);
+    clear(@wx_count);
+}
