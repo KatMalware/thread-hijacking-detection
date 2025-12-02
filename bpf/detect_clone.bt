@@ -1,0 +1,11 @@
+tracepoint:syscalls:sys_enter_clone
+{
+    @clone_count[comm] += 1;
+}
+
+interval:s:10
+{
+    print("== CLONE EVENTS ==");
+    print(@clone_count);
+    clear(@clone_count);
+}
