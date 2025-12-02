@@ -1,0 +1,11 @@
+tracepoint:syscalls:sys_enter_ptrace
+{
+    @ptrace_count[comm] += 1;
+}
+
+interval:s:10
+{
+    print("== PTRACE EVENTS ==");
+    print(@ptrace_count);
+    clear(@ptrace_count);
+}
